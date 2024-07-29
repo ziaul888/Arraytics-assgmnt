@@ -39,7 +39,7 @@ export const Button=styled.button`
 	background-color: transparent;
 	cursor: pointer;
 	 border-bottom: ${(props) => (props.isActive ? '2px solid #b78deb' : '2px solid transparent')};
-      color: ${(props) => (props.isActive ? '#b78deb' : '#49687e')};
+      color: ${(props) => (props.isActive ? '#b78deb' : 'var(--text-color)')};
 	font-weight: ${(props) => (props.isActive ? '600' : '400')};
 `
 export const DiscountTag=styled.div`
