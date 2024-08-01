@@ -2,22 +2,22 @@ import React from 'react';
 import {TabWrapper} from "@/styles/CustomStyle";
 import styled from 'styled-components';
 
-const TabSection = () => {
-	const [activeTab, setActiveTab] = React.useState("monthly");
+const TabSection = ({plansInfo,setActiveTab,activeTab}) => {
+	
 	return (
 		<TabWrapper>
 			<TabItem>
 			   <Button isActive={activeTab === 'monthly'} onClick={() => setActiveTab('monthly')}>
-				Billed monthly
+				   {plansInfo?.['1_year']?.title}
 			   </Button>
 			</TabItem>
 			<TabItem isLast>
 				<Button isActive={activeTab === 'yearly'} onClick={() => setActiveTab('yearly')}>
-					Billed yearly
+					{plansInfo?.['2_year']?.title}
 				</Button>
 			</TabItem>
 			<DiscountTag>
-				Save 20% 😍
+				{plansInfo?.['2_year']?.discount}
 			</DiscountTag>
 		</TabWrapper>
 	);

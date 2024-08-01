@@ -36,7 +36,6 @@ export const CardMain =styled.div`
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    height: 100%;
     padding: 24px 20px;
     position: relative;
     transition: all .25s;
@@ -58,7 +57,7 @@ export const CardMain =styled.div`
     }
 `
 export const PlanWrapper=styled.div`
-
+   padding-bottom: 1rem;
 `
 export const PlanName=styled.span`
  font-size: 1.1rem;
@@ -82,22 +81,24 @@ export const TooltipWrapper = styled.div`
   position: relative;
   display: inline-block;
   cursor: pointer;
+	
 `;
 
 export const TooltipText = styled.div`
   visibility: hidden;
-  width: 120px;
+  width: 200px;
   background-color: #fff;
   color: var(--text-color);
-  text-align: center;
+  text-align: left;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 10px;
   position: absolute;
   z-index: 1;
   bottom: 125%; /* Position the tooltip above the text */
   left: 50%;
   margin-left: -60px; /* Use half of the width to center the tooltip */
   opacity: 0;
+	font-size: 14px;
   transition: opacity 0.3s;
     box-shadow: 0 0 18px 0 rgba(73, 104, 126, .2);
 	

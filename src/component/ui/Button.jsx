@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const PlanButton = ({text,href}) => {
+const PlanButton = ({text, href}) => {
 	return (
 		<ButtonWrapper href={href}>
 			{text}
@@ -10,11 +10,11 @@ const PlanButton = ({text,href}) => {
 };
 
 export default PlanButton;
-export const ButtonWrapper=styled.a`
-    background: #4cb3fd;
+export const ButtonWrapper = styled.a`
+    background-color: #4cb3fd;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #fff;
+    color: inherit;
     display: block;
     font-weight: 400;
     line-height: 40px;

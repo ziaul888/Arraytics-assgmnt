@@ -5,7 +5,9 @@ const Tooltip = ({ text, children }) => {
 	return (
 		<TooltipWrapper>
 			{children}
-			<TooltipText>{text}</TooltipText>
+			<TooltipText>
+				{text}
+			</TooltipText>
 		</TooltipWrapper>
 	);
 };

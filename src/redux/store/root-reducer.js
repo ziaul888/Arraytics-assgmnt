@@ -1,5 +1,5 @@
 import { combineReducers } from "@reduxjs/toolkit";
-
+import planDataReducer from "../slice/planDataSlice"
 const exampleReducer = (state = {}, action) => {
 	switch (action.type) {
 		default:
@@ -9,6 +9,6 @@ const exampleReducer = (state = {}, action) => {
 
 //register all reducers here
 export const rootReducer = combineReducers({
-	example: exampleReducer,
+	planData:planDataReducer,
 	
 });

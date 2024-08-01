@@ -18,3 +18,8 @@ color:var(--text-color)
     color: var(--header-bg-color);
     font-size:14px;
 }
+.select_wrapper{
+    display: inline-flex;
+    column-gap: 5px;
+    align-items: center;
+}
