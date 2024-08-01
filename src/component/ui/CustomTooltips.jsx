@@ -5,9 +5,7 @@ const Tooltip = ({ text, children }) => {
 	return (
 		<TooltipWrapper>
 			{children}
-			<TooltipText>
-				{text}
-			</TooltipText>
+			<TooltipText dangerouslySetInnerHTML={{__html: text}}/>
 		</TooltipWrapper>
 	);
 };

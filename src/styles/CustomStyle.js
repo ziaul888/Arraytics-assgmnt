@@ -14,7 +14,7 @@ export const CardWrapper = styled.div`
     padding: 2rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 5rem;
+    row-gap: 1rem;
     column-gap: 1rem;
 
     @media (max-width: 1200px) {
@@ -39,21 +39,21 @@ export const CardMain =styled.div`
     padding: 24px 20px;
     position: relative;
     transition: all .25s;
-    &:nth-child(1) {
-        border-top: 8px solid #4cb3fd;
-        color:#4cb3fd
+    --parent-bg: #4cb3fd;
+	--parent-secondary-bg: #e5f2ff;
+    border-top: 8px solid var(--parent-bg);
+    color: var(--parent-bg);
+    &:nth-of-type(4n+2) {
+        --parent-bg: #ffb72c;
+        --parent-secondary-bg: #fff0d9;
     }
-    &:nth-child(2) {
-        border-top: 8px solid #ffb72c;
-        color:#ffb72c
+    &:nth-of-type(4n+3) {
+        --parent-bg: #68cb9b;
+        --parent-secondary-bg: #d8fdf0;
     }
-    &:nth-child(3) {
-        border-top: 8px solid #68cb9b;
-        color:#68cb9b
-    }
-    &:nth-child(4) {
-        border-top: 8px solid #b78deb;
-        color:#b78deb
+    &:nth-of-type(4n+4) {
+        --parent-bg: #b78deb;
+	    --parent-secondary-bg: #000;
     }
 `
 export const PlanWrapper=styled.div`
@@ -102,7 +102,6 @@ export const TooltipText = styled.div`
   transition: opacity 0.3s;
     box-shadow: 0 0 18px 0 rgba(73, 104, 126, .2);
 	
-
   &::after {
     content: '';
     position: absolute;
@@ -118,4 +117,8 @@ export const TooltipText = styled.div`
     visibility: visible;
     opacity: 1;
   }
+
+    img {
+	    width:100%
+    }
 `;

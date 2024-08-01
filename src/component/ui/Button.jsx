@@ -11,10 +11,10 @@ const PlanButton = ({text, href}) => {
 
 export default PlanButton;
 export const ButtonWrapper = styled.a`
-    background-color: #4cb3fd;
+    background-color: var(--parent-bg);
     border-radius: 8px;
+	color: #ffffff;
     box-sizing: border-box;
-    color: inherit;
     display: block;
     font-weight: 400;
     line-height: 40px;

@@ -75,7 +75,7 @@ const Card = ({plan, activeTab}) => {
 
 export default Card;
 export const PlanVisitor = styled.div`
-    background: #e5f2ff;
+    background: var(--parent-secondary-bg);
     border-radius: 32px;
 
     font-size: 13px;
