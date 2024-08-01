@@ -1,54 +1,76 @@
-
-import React, {useEffect, useState} from 'react';
+ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {useDispatch, useSelector} from "react-redux";
-import {setSelectedOption} from "@/redux/slice/planDataSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedOption } from '@/redux/slice/planDataSlice';
 
 const SelectContainer = styled.div`
-  position: relative;
-  width: 200px;
+    position: relative;
+    width: 200px;
 `;
 
 const SelectedOption = styled.div`
-  padding: 8px 10px;
-  background-color: white;
-  border: 1px solid ;
-  border-radius: 4px;
-  cursor: pointer;
-	font-size: 12px;
+    padding: 8px 10px;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	
+
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 8px;
+        vertical-align: middle;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid black;
+        transform: ${(props) => (props.isopen ? 'rotate(180deg)' : 'rotate(0)')};
+        transition: transform 0.2s;
+    }
 `;
 
 const OptionsContainer = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  border-top: none;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 1000;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
 `;
 
 const Option = styled.div`
-	background-color:${(props)=>props.isactive?'#f0f0f0':'#ffff'};
-	color:${(props)=>props.isactive?'':'var(--text-color)'};
-  padding: 10px;
-  cursor: pointer;
-	font-size: 12px;
-  &:hover {
-    background-color: #f0f0f0;
-  }
+    background-color: ${(props) => (props.isactive ? '#f0f0f0' : '#fff')};
+    color: ${(props) => (props.isactive ? '' : 'var(--text-color)')};
+    padding: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
 `;
 
-// CustomSelect component
 const CustomSelect = ({ options }) => {
 	const dispatch = useDispatch();
-	const {selectedOption}=useSelector((state)=>state.planData)
+	const { selectedOption } = useSelector((state) => state.planData);
 	const [isOpen, setIsOpen] = useState(false);
-	//const [selectedOption, setSelectedOption] = useState(null);
 	
 	const toggleOptions = () => {
 		setIsOpen(!isOpen);
@@ -65,13 +87,17 @@ const CustomSelect = ({ options }) => {
 	
 	return (
 		<SelectContainer>
-			<SelectedOption onClick={toggleOptions}>
-				{selectedOption ? selectedOption.label : options[0]?.label }
+			<SelectedOption isopen={isOpen} onClick={toggleOptions}>
+				{selectedOption ? selectedOption.label : options[0]?.label}
 			</SelectedOption>
 			{isOpen && (
 				<OptionsContainer>
 					{options.map((option) => (
-						<Option  isactive={selectedOption?.label===option?.label} key={option.value} onClick={() => handleOptionClick(option)}>
+						<Option
+							isactive={selectedOption?.label === option?.label}
+							key={option.value}
+							onClick={() => handleOptionClick(option)}
+						>
 							{option.label}
 						</Option>
 					))}

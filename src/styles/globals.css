@@ -1,4 +1,7 @@
 
+* {
+    box-sizing: border-box;
+}
 :root {
     --main-bg-color: #ffffff;
     --text-color: #49687e;
@@ -7,7 +10,7 @@
 }
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: rubik, sans-serif;
 }
 
 h2,li {

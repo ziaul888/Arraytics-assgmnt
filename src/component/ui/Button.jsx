@@ -22,4 +22,5 @@ export const ButtonWrapper = styled.a`
     text-align: center;
     text-decoration: none;
     transition: background-color .3s;
+	width: 100%;
 `

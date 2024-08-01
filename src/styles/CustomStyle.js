@@ -11,12 +11,10 @@ export const TabWrapper = styled.div`
  display: flex;
 `;
 export const CardWrapper = styled.div`
-    padding: 2rem;
+    padding: 2rem 0;
     display: grid;
+	gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 1rem;
-    column-gap: 1rem;
-
     @media (max-width: 1200px) {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -35,7 +33,7 @@ export const CardMain =styled.div`
     border: 1px solid #eaeff2;
     border-radius: 8px;
     display: flex;
-    flex-direction: column;
+	flex-wrap: wrap;
     padding: 24px 20px;
     position: relative;
     transition: all .25s;
@@ -94,9 +92,8 @@ export const TooltipText = styled.div`
   padding: 10px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position the tooltip above the text */
-  left: 50%;
-  margin-left: -60px; /* Use half of the width to center the tooltip */
+  bottom: 125%;
+	right:0;
   opacity: 0;
 	font-size: 14px;
   transition: opacity 0.3s;
@@ -107,10 +104,14 @@ export const TooltipText = styled.div`
   &::after {
     content: '';
     position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
+    top: 100%;
+      right: ${
+              (props)=> props.arrowAlign == 'left' ? "auto" : "0"
+      };
+      left: ${
+              (props)=> props.arrowAlign == 'left' ? "0" : "auto"
+      };
+    border-width: 8px;
     border-style: solid;
     border-color: #fff transparent transparent transparent;
   }

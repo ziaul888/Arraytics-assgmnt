@@ -17,6 +17,11 @@ const Card = ({plan, activeTab}) => {
 	
 	return (
 		<CardMain>
+			{plan?.name === "Pro" &&
+				<Tag>
+					Most popular
+				</Tag>
+			}
 			<PlanWrapper>
 				<PlanName>
 					{plan.name}
@@ -59,7 +64,7 @@ const Card = ({plan, activeTab}) => {
 					</FeatureTitle>
 					<FeatureList>
 						{plan?.features?.map((item, index) => {
-							return <Tooltip text={item?.description} key={index}>
+							return <Tooltip arrowAlign="left" text={item?.description} key={index}>
 								<Feature>
 									{item?.title}
 								</Feature>
@@ -122,4 +127,17 @@ export const DiscountSpan = styled.span`
     position: absolute;
     text-decoration: line-through;
     top: 4px;
+`
+export const Tag = styled.div`
+    background-color: var(--parent-bg);
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 6px 8px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
 `

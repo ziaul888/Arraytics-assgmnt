@@ -1,11 +1,11 @@
 import React from 'react';
 import {TooltipText, TooltipWrapper} from "@/styles/CustomStyle";
 
-const Tooltip = ({ text, children }) => {
+const Tooltip = ({ text,arrowAlign, children }) => {
 	return (
 		<TooltipWrapper>
 			{children}
-			<TooltipText dangerouslySetInnerHTML={{__html: text}}/>
+			<TooltipText arrowAlign={arrowAlign} dangerouslySetInnerHTML={{__html: text}}/>
 		</TooltipWrapper>
 	);
 };
