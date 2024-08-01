@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const PricingSection = styled.div`
-   max-width:1110px;
+	max-width:1110px;
 	margin: 0 auto;
 	padding-inline: 1rem;
 	padding-top: 3rem;
@@ -101,6 +101,8 @@ export const TooltipText = styled.div`
 	font-size: 14px;
   transition: opacity 0.3s;
     box-shadow: 0 0 18px 0 rgba(73, 104, 126, .2);
+	word-break: break-word;
+	white-space: normal;
 	
   &::after {
     content: '';
