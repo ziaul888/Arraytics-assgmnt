@@ -1,4 +1,4 @@
- import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedOption } from '@/redux/slice/planDataSlice';
@@ -21,7 +21,6 @@ const SelectedOption = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-	
 
     &::after {
         content: '';
@@ -32,7 +31,7 @@ const SelectedOption = styled.div`
         vertical-align: middle;
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
-        border-top: 4px solid black;
+        border-top: 4px solid ;
         transform: ${(props) => (props.isopen ? 'rotate(180deg)' : 'rotate(0)')};
         transition: transform 0.2s;
     }
@@ -61,7 +60,6 @@ const Option = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
     &:hover {
         background-color: #f0f0f0;
     }
