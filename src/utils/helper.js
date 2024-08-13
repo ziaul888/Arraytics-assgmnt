@@ -64,4 +64,13 @@ export const getPlanPrice = (activeTab, selectedOption, plans) => {
 		return activeTab === 'monthly' ? plans?.details?.['1_year']?.price : plans?.details?.['2_year']?.price;
 	}
 };
+export const getOption = (plan) => {
+	if (plan?.same_plans?.length > 0) {
+		return plan.same_plans.map((item) => ({
+			label: item.title.replace(/<\/?strong>/g, ""),
+			value: item.title
+		}));
+	}
+	return [];
+};
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {TooltipText, TooltipWrapper} from "@/styles/CustomStyle";
+import {TooltipText, TooltipWrapper} from "styles/CustomStyle";
 
 const Tooltip = ({ text,arrowAlign, children }) => {
 	return (

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedOption } from '@/redux/slice/planDataSlice';
 
 const SelectContainer = styled.div`
     position: relative;
@@ -65,9 +63,8 @@ const Option = styled.div`
     }
 `;
 
-const CustomSelect = ({ options }) => {
-	const dispatch = useDispatch();
-	const { selectedOption } = useSelector((state) => state.planData);
+const CustomSelect = ({ onSelect,options,defaultOption }) => {
+	const [selectedOption, setSelectedOption] = useState(defaultOption);
 	const [isOpen, setIsOpen] = useState(false);
 	
 	const toggleOptions = () => {
@@ -75,13 +72,14 @@ const CustomSelect = ({ options }) => {
 	};
 	
 	const handleOptionClick = (option) => {
-		dispatch(setSelectedOption(option));
+		setSelectedOption(option);
 		setIsOpen(false);
+		onSelect(option);
 	};
 	
 	useEffect(() => {
-		dispatch(setSelectedOption(options[0]));
-	}, []);
+		setSelectedOption(defaultOption);
+	}, [defaultOption]);
 	
 	return (
 		<SelectContainer>

@@ -1,6 +1,6 @@
 import React from 'react';
-import {TabWrapper} from "@/styles/CustomStyle";
 import styled from 'styled-components';
+import {TabWrapper} from "styles/CustomStyle";
 
 const TabSection = ({plansInfo,setActiveTab,activeTab}) => {
 	

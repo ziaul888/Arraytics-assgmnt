@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from "styled-components";
-import {CardMain, PlanName, PlanPrice, PlanSpan, PlanWrapper} from "@/styles/CustomStyle";
-import InfoIcon from "@/component/icon/InfoIcon";
-import PlanButton from "@/component/ui/Button";
-import Tooltip from "@/component/ui/CustomTooltips";
-import CustomSelect from "@/component/ui/CustomSelect";
-import {useSelector} from "react-redux";
-import {getPlanPrice} from "@/utils/helper";
+import {CardMain, PlanName, PlanPrice, PlanSpan, PlanWrapper} from "styles/CustomStyle";
+import CustomSelect from "component/ui/CustomSelect";
+import Tooltip from "component/ui/CustomTooltips";
+import InfoIcon from "component/icon/InfoIcon";
+import PlanButton from "component/ui/Button";
+import {getOption, getPlanPrice} from "../../utils/helper";
+
 
 const Card = ({plan, activeTab}) => {
-	const {selectedOption} = useSelector((state) => state.planData)
-	const options = plan?.same_plans?.map((item) => {
-		return {label: item.title.replace(/<\/?strong>/g, ""), value: item.title}
-	})
-	const price = getPlanPrice(activeTab, selectedOption, plan)
+	const options = getOption(plan)
+	const [selectedValue, setSelectedValue] = React.useState(options[0]);
+	const price = getPlanPrice(activeTab, selectedValue, plan)
+	const handleSelect = (value) => {
+		setSelectedValue(value)
+	};
 	
 	return (
 		<CardMain>
@@ -40,7 +41,7 @@ const Card = ({plan, activeTab}) => {
 				</PlanPrice>
 				{plan?.same_plans?.length > 1 ?
 					(<div className="select_wrapper">
-						<CustomSelect options={options}/>
+						<CustomSelect options={options} defaultOption={selectedValue} onSelect={handleSelect} />
 						<Tooltip text={plan?.text}>
 							<InfoIconWrapper>
 								<InfoIcon/>
